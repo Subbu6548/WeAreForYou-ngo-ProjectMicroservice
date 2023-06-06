@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  server:
+   build: .
+   restart: always
+   ports:
+    - 8082:8082
+   depends_on:
+    - mysqldb
+  mysqldb:
+    image: "mysql:5.7"
+    restart: always
+    ports:
+    - 3307:3310
+    environment:
+      MYSQL_DATABASE: project-microservice
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+      MYSQL_ROOT_PASSWORD:
